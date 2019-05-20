@@ -69,7 +69,7 @@ html {
 
 body {
 	margin: 0;
-	padding:0 10%;
+	/*padding:0 10%;*/
 }
 
 /**
@@ -991,13 +991,14 @@ object {
 /*--------------------------------------------------------------
 ## Blog Layout
 --------------------------------------------------------------*/
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width : 1000px) {
 .content-area {
 	float: left;
 	margin: 0 -25% 0 0;
 	width: 100%;
 	/*Addition*/
 	padding-right:20px;
+	padding:0 10% 0 10%;
 	word-wrap: break-word;
 	/*border-right:solid 1px #222;*/
 
@@ -1011,11 +1012,14 @@ object {
 	width: 25%;
 	/*Addition*/
 	padding-left:20px;
+	padding:20px 100px 20px 0px;
+
 	/*border-left:solid 2px #000;*/
 }
 .site-footer {
 	clear: both;
 	width: 100%;
+	padding:0 10%;
 }
 
 .no-sidebar .content-area {
@@ -1027,13 +1031,80 @@ object {
 	margin-right: 0;
 }
 /*Addition*/
-.site-content-fullwidth {
+/*.site-content-fullwidth {
 	margin: 0 0 0 0;
 	background-color: red;
-	padding:0;
+	padding:0 10%;
+	word-wrap: break-word;
+}*/
+
+}
+
+
+@media only screen and (min-width : 1000px) {
+	.site-branding {
+		float:left;
+		/*width:30%;*/
+	}
+
+	.site-branding img {
+	    height:100px;
+	}
+	#site-navigation {
+		clear:none;
+		float:right;
+		width:50%;
+		margin:0;
+		margin-top: 40px;
+		position: relative;
+	}
+}
+
+
+.content-area {
+	/*float: left;*/
+	/*margin: 0;*/
+	/*width: 100%;*/
+	/*Addition*/
+	/*padding-right:20px;*/
+	padding:0 10% 0 10%;
+	/*word-wrap: break-word;*/
+}
+
+/***************FULL WIDTH LAYOUT STYLES***************/
+.site-content-fullwidth {
+	margin: 0 0 0 0;
+	padding:0 10%;
 	word-wrap: break-word;
 }
+
 .site-content-fullwidth .site-main {
 	margin: 0 0 0 0;
 }
+
+.widget-area {
+	width: 100%;
+	padding:10px 10%;
+}
+/***************END OF FULL WIDTH LAYOUT STYLES***************/
+
+.site-header{
+	display:block;
+    padding:20px 10%;
+}
+.site-header li{
+    font-size: 18px;
+    margin-left:5px;
+}
+.site-header li:hover{
+	border-bottom: 3px solid #26A69A;
+}
+li.current-menu-item {
+	border-bottom: 3px solid #26A69A;
+}
+
+/*Align footer at the center.*/
+.site-info {
+	text-align: center;
+	padding:20px 10%;
 }
