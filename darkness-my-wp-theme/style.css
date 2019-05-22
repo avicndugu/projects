@@ -525,6 +525,9 @@ table {
 	width: 100%;
 }
 
+p {
+    font-family: 'Droid Serif', serif;
+}
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -535,12 +538,12 @@ input[type="submit"] {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
 	border-radius: 3px;
-	background: #e6e6e6;
+	background: #ccc;
 	color: rgba(0, 0, 0, 0.8);
 	font-size: 12px;
-	font-size: 0.75rem;
+	font-size: 0.9rem;
 	line-height: 1;
-	padding: .6em 1em .4em;
+	padding: .8em 1em .8em;
 }
 
 button:hover,
@@ -577,7 +580,7 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: #666;
-	border: 1px solid #ccc;
+	border: 2px solid #ddd;
 	border-radius: 3px;
 	padding: 3px;
 }
@@ -1062,13 +1065,7 @@ object {
 
 
 .content-area {
-	/*float: left;*/
-	/*margin: 0;*/
-	/*width: 100%;*/
-	/*Addition*/
-	/*padding-right:20px;*/
 	padding:0 10% 0 10%;
-	/*word-wrap: break-word;*/
 }
 
 /***************FULL WIDTH LAYOUT STYLES***************/
@@ -1091,6 +1088,8 @@ object {
 .site-header{
 	display:block;
     padding:20px 10%;
+    font-family:'Open Sans', sans-serif;
+    border-bottom:1px solid #ddd;
 }
 .site-header li{
     font-size: 18px;
@@ -1102,9 +1101,37 @@ object {
 li.current-menu-item {
 	border-bottom: 3px solid #26A69A;
 }
-
+.site-header a{
+    color:#111;
+    text-decoration: none;
+}
+.site-title {
+    font-size: 25px;
+}
 /*Align footer at the center.*/
 .site-info {
 	text-align: center;
 	padding:20px 10%;
+}
+
+.entry-title a {
+    color: #404040;
+}
+
+
+/***********COMMENT BUTTON**************/
+input[type="submit"] {
+    border:none;
+    background: #ff920e;
+}
+
+.widget-area ul {
+    margin:0;
+    padding:0;
+
+}
+.widget-area li{
+    /*margin-left:-50%;*/
+    padding-bottom: 5px;
+    list-style-type: none;
 }
