@@ -1048,21 +1048,42 @@ object {
 @media only screen and (min-width : 1000px) {
 	.site-branding {
 		float:left;
-		/*width:30%;*/
+		/*width:300px;*/
 	}
 
 	.site-branding img {
-	    height:100px;
+	    /*height:auto;*/
+	    width:100%;
 	}
 	#site-navigation {
 		clear:none;
 		float:right;
-		width:50%;
-		margin:0;
+		width:auto;
+		/*margin:0;*/
 		margin-top: 40px;
-		position: relative;
+		/*position: relative;*/
 	}
 }
+
+/* LOGO ON MOBILE*/
+.site-branding {
+	width:200px;
+	margin:0 auto;
+}
+.site-branding img {
+    width:70%;
+    height:auto;
+}
+.menu-toggle {
+	/*text-align: center;*/
+	margin:0 auto;	
+}
+/*#site-navigation {
+	margin:0 auto;
+}*/
+
+/*END OF LOGO ON MOBILE*/
+
 
 
 .content-area {
