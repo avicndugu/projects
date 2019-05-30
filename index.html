@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tester</title>
+</head>
+<body>
+    <button id="first-subject">SHOWING</button>
+</body>
+<script type="text/javascript">
+    document.getElementById("first-subject").addEventListener('click', loadData);
+    let n=0;
+    function loadData(){
+        const xhr= new XMLHttpRequest();
+        xhr.open('GET','http://localhost:3000/customers/', true);
+        xhr.onload= function(){
+            if(this.status===200){
+                console.log(this.responseText);
+                const data= JSON.parse(this.responseText);
+                console.log(data.length);
+                for(n=0;n<data.length;n++){
+                        console.log(data[n]);
+                    }
+                console.log(n);
+            }
+        }
+        xhr.send();
+    }
+</script>
+</html>
