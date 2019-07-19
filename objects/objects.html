@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+            function Cat(name, color) {
+                this.name= name,
+                this.color= color
+            }
+            var fluffy = new Cat('fluffy', "white");
+            Cat.prototype.age=3;
+            console.log(Cat.prototype);
+            console.log(fluffy.__proto__);
+
+            console.log(fluffy.age);
+            //This object value is set by the prototype but fluffy does not have an actual age property.
+            console.log(Object.keys(fluffy));
+            //OR
+            console.log(fluffy.hasOwnProperty('age'));
+            console.log(fluffy.__proto__.age);
+            // ie. fluffy has: objects property: name, color.
+            // fluffy has object __proto__:  age
+            fluffy.age=5; //This is the instance property which overides the prototype property value
+            console.log(fluffy.age);
+            console.log(fluffy.hasOwnProperty('age'));
+            console.log(Object.keys(fluffy));
+            // Changing function prototype 
+                // You have created a new object in memory
+                // Prototypes are objects that live in memory
+
+            // Prototypal inheritance
+                function Animal (voice){
+                    this.voice= voice || 'grunt'
+                }
+                Animal.prototype.speak = function(){
+                    console.log(this.voice);
+                    //console.log("Meooow");
+                }
+
+                function Cat(name, color) {
+                    Animal.call(this, 'Meoow'), //Important
+                    this.name= name,
+                    this.color= color
+                }
+                Cat.prototype = Object.create(Animal.prototype); // Important // Sets the __proto__ to that of animal
+                // Instaciate fluffy after creating this prototype so that it works
+                Cat.prototype.constructor = Cat; // Sets the constructor to that of Cat
+                var fluffy = new Cat('fluffy', "white");
+
+                fluffy.speak();
+                console.log(fluffy);
+            // Creating Prototypes using classes
+                class Animals {
+                    constructor(voice) {
+                        this.voice = voice || "grunt"
+                    }
+                    speak(){
+                        console.log(this.voice)
+                    }
+                }
+                class Cats extends Animals {
+                    constructor(name, color) {
+                        super("Meooow");
+                        this.name= name,
+                        this.color= color
+                    }
+                }
+                var fluffy = new Cats('fluffy', 'red');
+                fluffy.speak();
+                console.log(fluffy);
+    </script>
+</body>
+</html>
