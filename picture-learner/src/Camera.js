@@ -5,8 +5,17 @@ class Camera extends React.Component{
         super(props);
         this.state ={
             itemNumber:1,
+        };
+        this.addItem = this.addItem.bind(this);
+    }
+    addItem(){
+        if (this.state.itemNumber<10) {
+            this.setState({
+                itemNumber:this.state.itemNumber + 1
+            })
         }
     }
+
     render(){
         return(
             <div>        
@@ -14,7 +23,7 @@ class Camera extends React.Component{
                 <h1>Camera</h1>
                 <h1>[Icon]Take a picture</h1>
                 <button>Retake</button>
-                <button>Accept</button>
+                <button onClick={this.addItem}>Accept</button>
             </div>
         )
       }
