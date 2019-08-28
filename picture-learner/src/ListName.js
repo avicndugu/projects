@@ -1,16 +1,27 @@
 import React from 'react';
 
-class listName extends React.Component{
+class ListName extends React.Component{
+    // constructor(props){
+    //     super(props);
+    //     this.state={
+    //         visibility:true,
+    //     }
+    //   }
   render(){
-    return(
-        <div>
-          <h1>Name of the list</h1>
-          <input type="text" placeholder="Name of class"/>
-          <button>Add new list</button>
-        </div>
-    )
+    const {listNameView}= this.props;
+    // if (listNameVisibility===true){
+      return(
+          <div>
+            <h1>Name of the list</h1>
+            <input type="text" placeholder="Name of class"/>
+            <button onClick={this.props.listNameView}>Add new list</button>
+          </div>
+      )
+    // }else{
+
+    // }
   }
 }
 
 
-export default listName;
+export default ListName;

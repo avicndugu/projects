@@ -26,36 +26,67 @@ class ItemNames extends React.Component{
     )
   }
 }
-
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      visibility:"view3",
+      visibility:true,
+      listVisibility:true,
+      cameraVisibility:true,
+      itemNumber:1,
+      publishVisibility:true,
     }
+    this.listNameView=this.listNameView.bind(this);
+    this.cameraView=this.cameraView.bind(this);
+    this.addItem = this.addItem.bind(this);
+
   }
+  listNameView(){
+        this.setState({
+          listVisibility:false,
+        });
+    }
+  cameraView(){
+        this.setState({
+            cameraVisibility:false,
+        })
+  }
+
+  addItem(){
+        if (this.state.itemNumber<10) {
+            this.setState({
+                itemNumber:this.state.itemNumber + 1
+            })
+        }
+  }
+
+
   render(){
-    if(this.state.visibility=="view1"){
+    const {listVisibility, cameraVisibility, itemNumber, publishVisibility}=this.state;
+    if(listVisibility===true){
       return(
         <div className="container">
           <h1>New list</h1>
-          <ListName />
+          <ListName listVisibility={listVisibility} listNameView={this.listNameView}/>
+          <p>Step 1 of 3</p>
         </div>
       )
-    }else if(this.state.visibility=="view2"){
+    }else if(cameraVisibility===true){
       return(
         <div className="container"> 
-          <Camera />
+          <Camera cameraVisibility={cameraVisibility} cameraView={this.cameraView} itemNumber={itemNumber} addItem={this.addItem}/>
+          <p>Step 2 of 3</p>
         </div>
       )
     }
-    else if(this.state.visibility=="view3"){
+    else if(publishVisibility===true){
       return(
         <div>
           <p>Uploading picture</p>
           <p>Upload completed</p>
           <button>Add more items</button>
           <button>Publish class.</button>
+          <p>Step 3 of 3</p>
         </div>
       )
     }
