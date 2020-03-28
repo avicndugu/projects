@@ -148,9 +148,9 @@ In JavaScript classes, you need to always call super when defining the construct
 
 
 
-
-
-
 Added git ignore for node modules
 made a first commit.
 Components
+
+13:06- 13:37
+Practice making simple components on personal project.
