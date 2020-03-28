@@ -1,0 +1,60 @@
+I decided to have another go at React after testing a little bit on Vue.
+
+I had a selection of tutorials to follow along.
+I settled on two:
+Tania Rascia's tutorial
+React's official Tic-tac-toe tutorial 
+
+
+11:55- 12:12
+Installed a new project here.
+    npx create-react-app react-tutorial-2
+    cd react-tutorial-2
+    yarn start
+
+You can now view react-tutorial-2 in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.43.11:3000
+
+
+
+12:12-
+React: used to build user interfaces UI's
+Build complex UI's by building small parts called components.
+
+There are different kind of components
+1. React.Component subclasses
+
+    class ShoppingList extends React.Component {
+      render() {
+        return (
+          <div className="shopping-list">
+            <h1>Shopping List for {this.props.name}</h1>
+            <ul>
+              <li>Instagram</li>
+              <li>WhatsApp</li>
+              <li>Oculus</li>
+            </ul>
+          </div>
+        );
+      }
+    }
+
+    // Example usage: <ShoppingList name="Mark" />
+
+Components tell react what it should show on screen/ display.
+A component takes in parameters, called props (short for “properties”), and returns a hierarchy of views to display via the render method.( I have no Idea what this means at this particular time).
+
+The render method returns a description of what you want to see on the screen. React takes the description and displays the result.
+
+Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+
+Delete files inside src by:
+rm -f *
+touch index.js index.css
+
+
+Added git ignore for node modules
+made a first commit.
+Components
