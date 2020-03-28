@@ -1,3 +1,5 @@
+
+28th March 2020
 I decided to have another go at React after testing a little bit on Vue.
 
 I had a selection of tutorials to follow along.
@@ -19,7 +21,7 @@ You can now view react-tutorial-2 in the browser.
 
 
 
-12:12-
+12:12- 13:06
 React: used to build user interfaces UI's
 Build complex UI's by building small parts called components.
 
@@ -53,6 +55,100 @@ Each React component is encapsulated and can operate independently; this allows 
 Delete files inside src by:
 rm -f *
 touch index.js index.css
+
+Copy starter code for index.js and index.css
+
+Inspecting the code, you’ll notice that we have three React components:
+Square
+Board
+Game
+They have this syntax:
+    class Square extends React.Component {
+        render() {
+            return (
+            
+            )
+        }
+    }
+
+
+Passing a props from parent to child
+Parent:
+    class Board extends React.Component {
+      renderSquare(i) {
+        return <Square value={i} />;
+      }
+
+Child:
+    class Square extends React.Component {
+      render() {
+        return (
+          <button className="square">
+            {this.props.value}
+          </button>
+        );
+      }
+    }
+
+Passing props is how information flows in React apps, from parents to children.
+
+Click event handler:
+    <button className="square" onClick={()=>{alert("clicked")}}>
+        {this.props.value}
+      </button>
+
+Components use state to remember what has happened.
+React components can have state by setting this.state in their constructors. this.state should be considered as private to a React component that it’s defined in.
+
+class Square extends React.Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      value:null
+    };
+  }
+  render() {
+    return (
+      <button className="square" onClick={()=>{alert("clicked")}}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
+
+
+
+Finally instead of alert, let there be an X inside the square.
+    class Square extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          value: null,
+        };
+      }
+
+      render() {
+        return (
+          <button
+            className="square"
+            onClick={() => this.setState({value: 'X'})}
+          >
+            {this.state.value}
+          </button>
+        );
+      }
+    }
+
+
+By calling this.setState from an onClick handler in the Square’s render method, we tell React to re-render that Square whenever its <button> is clicked. After the update, the Square’s this.state.value will be 'X', so we’ll see the X on the game board. If you click on any Square, an X should show up.
+When you call setState in a component, React automatically updates the child components inside of it too.
+
+
+In JavaScript classes, you need to always call super when defining the constructor of a subclass. All React component classes that have a constructor should start with a super(props) call.
+
+
+
+
 
 
 Added git ignore for node modules
