@@ -154,3 +154,61 @@ Components
 
 13:06- 13:37
 Practice making simple components on personal project.
+Day 1: 1 hour 42 minutes
+
+
+Day 2
+1638-
+
+Data is handled using properties(props) and state
+
+
+Create an array of objects that will contain the data to be added to the table.
+This data should go to the most top level component.
+
+class App extends React.Component {
+  render() {
+    const characters = [
+      {
+        name: "Character",
+        job: "Janitor"
+      },
+      {
+        name: "Mac",
+        job: "Bouncer"
+      }
+    ]
+    return (
+      <div className="app">
+        <Table />
+        <NewTable />
+      </div>
+    )
+  }
+}
+
+Pass the data to the child component (Table) with properties.
+Give the property a name: characterData
+<NewTable characterData={characters}/>
+
+
+Accessing the data on the child NewTable
+const { characterData } = this.props
+
+Pass the data to the child TableBody
+<TableBody characterData= {characterData}/>
+
+
+
+
+Lets pass the headings of the table as props
+1. Create an object in App component
+const tableHeadings = {
+      column1: "Name",
+      column2: "Job"
+    }
+
+2. Pass it to the child component Table
+
+<Table tableHeadings= { tableHeadings }/>
+

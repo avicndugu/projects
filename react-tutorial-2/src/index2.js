@@ -3,48 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class App extends React.Component {
-  render() {
-    const characters = [
-      {
-        name: "Character",
-        job: "Janitor"
-      },
-      {
-        name: "Mac",
-        job: "Bouncer"
-      }
-    ]
-
-    const tableHeadings = {
-      column1: "Name",
-      column2: "Job"
+    render() {
+        return (
+            <div className="app">
+                <Table />
+                <NewTable />
+            </div>
+        )
     }
-
-
-    return (
-      <div className="app">
-        <Table tableHeadings= { tableHeadings }/>
-        <NewTable  characterData={characters}/>
-      </div>
-    )
-  }
 }
 
-  
 class Table extends React.Component {
     render() {
-      const {tableHeadings} = this.props
         return (
             <table>
                 <thead>
                   <tr>
-                    <th>{ tableHeadings.column1 }</th>
-                    <th>{ tableHeadings.column2 }</th>
+                    <th>Name</th>
+                    <th>Job</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>James</td>
+                    <td>Charlie</td>
                     <td>Janitor</td>
                   </tr>
                   <tr>
@@ -59,11 +40,10 @@ class Table extends React.Component {
 
 class NewTable extends React.Component {
     render(){
-      const { characterData }= this.props
         return(
             <table>
                 <TableHeader />
-                <TableBody characterData= {characterData}/>
+                <TableBody />
             </table>
         )
     }
@@ -79,16 +59,20 @@ const TableHeader = ()=> {
     )
 }
 
-const TableBody = props => {
-  const rows = props.characterData.map((row, index)=> {
+const TableBody = ()=> {
     return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.job}</td>
-      </tr>
+        <tbody>
+            <tr>
+                <td>Dee</td>
+                <td>Aspiring actress</td>
+              </tr>
+              <tr>
+                <td>Dennis</td>
+                <td>Bartender</td>
+              </tr>
+        </tbody>
+
     )
-  })
-  return <tbody>{rows}</tbody>   
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
