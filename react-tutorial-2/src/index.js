@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import './bulma.min.css';
 import './index.css';
+
 
 class App extends Component{
     constructor(props){
@@ -8,7 +10,6 @@ class App extends Component{
         this.state={
             display:true,
             value:"Start",
-            count:0
         }
     }
     toggle (){
@@ -31,52 +32,52 @@ class App extends Component{
             {
               "name":"phone",
               "url":"img/phone.png",
-              "audio":"phone.mp3"
+              "audio":"english/phone.mp3"
             },
             {
               "name":"moon",
               "url":"img/moon.png",
-              "audio":"moon.mp3"
+              "audio":"english/moon.mp3"
             },
             {
               "name":"shoes",
               "url":"img/shoes.png",
-              "audio":"shoes.mp3"
+              "audio":"english/shoes.mp3"
             },
             {
               "name":"socks",
               "url":"img/socks.png",
-              "audio":"socks.mp3"
+              "audio":"english/socks.mp3"
             },
             {
               "name":"star",
               "url":"img/star.png",
-              "audio":"star.mp3"
+              "audio":"english/star.mp3"
             },
             {
               "name":"sun",
               "url":"img/sun.png",
-              "audio":"sun.mp3"
+              "audio":"english/sun.mp3"
             },
             {
               "name":"bottle",
               "url":"img/bottle.png",
-              "audio":"bottle.mp3"
+              "audio":"english/bottle.mp3"
             },
             {
               "name":"door",
               "url":"img/door.png",
-              "audio":"door.mp3"
+              "audio":"english/door.mp3"
             },
             {
               "name":"car",
               "url":"img/car.png",
-              "audio":"car.mp3"
+              "audio":"english/car.mp3"
             },
             {
               "name":"cup",
               "url":"img/cup.png",
-              "audio":"cup.mp3"
+              "audio":"english/cup.mp3"
             }
         ]
 
@@ -93,10 +94,6 @@ class App extends Component{
                     <Items 
                         allItems= {allItems}
                         itemsDisplay = {this.state.display}
-                        counter={this.counter}
-                        increment={this.increment}
-                        count={this.state.count}
-                        decrement={this.decrement}
                      />
                     <button className="button" onClick={(e)=> this.toggle(e)}>{this.state.value}</button>
                 </div>
@@ -125,7 +122,7 @@ class Items extends Component {
                 count:0,
         };
     }
-    
+
     increment = (itemCount)=> {
         this.setState({
             count: itemCount
@@ -142,11 +139,15 @@ class Items extends Component {
         return(
             <div id="app-5">
                 {console.log(this.state.count)}
-                <h2>{allItems[this.state.count].name}</h2>
+                <h2 className="title">{allItems[this.state.count].name}</h2>
                 <img src={`${process.env.PUBLIC_URL}${allItems[this.state.count].url}`}  alt="Decorative text"/>
+                <br/>
+                <audio controls>
+                    <source src={`${process.env.PUBLIC_URL}${allItems[this.state.count].audio}`} type="audio/mpeg" />
+                    Your browser does not support the audio tag. 
+                </audio>
                 <p>{allItems[this.state.count].audio}</p>
                 <CycleButtons 
-                counter={this.counter}
                 increment={this.increment}
                 count={this.state.count}
                 decrement={this.decrement}
@@ -158,15 +159,12 @@ class Items extends Component {
 }
 
 class CycleButtons extends Component {
-    countData= ()=> {
-        this.props.counter(5);
-    }
     incrementer = (current)=> {
         if(this.props.count<9){
             this.props.increment(current + 1)
         }
     }
-    decrementer =(current)=> {
+    decrementer = (current)=> {
         if(this.props.count>0){
             this.props.increment(current - 1)
         }
