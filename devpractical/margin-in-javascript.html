@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>margin in javascript</title>
+</head>
+<body>
+    <div id="box">
+        <p>Click this div element with the id of box to see the effect of the change.</p>
+    </div>
+    <p>This is an extra element to test bottom margin effect.</p>
+</body>
+<script>
+    var box= document.querySelector("#box");
+// Setting the value of margin in Javascript
+    //a. Change all margins using Javascript 
+    box.addEventListener('click', function(){
+        box.style.margin="50px 100px 50px 100px";
+    });
+    
+    // b. Changing top margin only
+    box.addEventListener('click', function(){
+      box.style.marginTop="100px";
+    });
+    
+    //c. Changing bottom margin only
+    box.addEventListener('click', function(){
+      box.style.marginBottom="50px";
+    });
+    
+    //d. Changing left margin only
+    box.addEventListener('click', function(){
+        box.style.marginLeft="100px";
+    });
+    
+    //e. Changing right margin only
+    box.addEventListener('click', function(){
+      box.style.marginRight="50px";
+    });
+/////////////////////////////////////////////////////////////////
+// 2. Getting the value of margin in javascript
+    //a. Getting all margins using Javascript 
+    box.addEventListener('click', function(){
+        var style = box.currentStyle || window.getComputedStyle(box)
+        console.log(style.margin);
+        // alert(style.margin);
+    });
+    
+    // b. Getting top margin only
+    box.addEventListener('click', function(){
+      var style = box.currentStyle || window.getComputedStyle(box)
+        console.log(style.marginTop);
+    });
+    
+    //c. Getting bottom margin only
+    box.addEventListener('click', function(){
+      var style = box.currentStyle || window.getComputedStyle(box)
+        console.log(style.marginBottom);
+    });
+    
+    //d. Getting left margin only
+    box.addEventListener('click', function(){
+        var style = box.currentStyle || window.getComputedStyle(box)
+        console.log(style.marginLeft);
+    });
+    
+    //e. Getting right margin only
+    box.addEventListener('click', function(){
+      var style = box.currentStyle || window.getComputedStyle(box)
+        console.log(style.marginRight);
+    }); 
+</script>
+</html>
